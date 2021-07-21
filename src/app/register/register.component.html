@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>REGISTER</h1>
+    <div class="row">
+        <div class="col-lg-5 m-auto">
+            <div class="card mt-5 bg-dark">
+                <div class="card-title text-center mt-3">
+                 
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class=" input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-user fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control py-2" placeholder="accountnumber" [(ngModel)]="acno"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class=" input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-lock fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control py-2" placeholder="password" [(ngModel)]="pswd"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class=" input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-user fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control py-2" placeholder="username" [(ngModel)]="uname"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+
+
+
+
+
+                       
+                        <button  (click)="register()" >REGISTER NOW</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amaranth&family=Armata&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <h1 style="font-family: 'Amaranth', sans-serif;
+    font-family: 'Armata', sans-serif;color:maroon;font-weight:bolder;font-size: 60px;">{{aim}}</h1>
+
+    <div class="row">
+        <div class="col-lg-5 m-auto">
+            <div class="card mt-5 bg-dark">
+                <div class="card-title text-center mt-3">
+                    <img [src]="myimage" alt="image" style="width:150px;height:150px">
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class=" input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="far fa-user fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="text" class="form-control py-2" placeholder="accountnumber" [(ngModel)]="acno"
+                                [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class=" input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-lock fa-2x"></i>
+                                </span>
+                            </div>
+                            <input type="password" class="form-control py-2" placeholder="password" [(ngModel)]="pswd"
+                                [ngModelOptions]="{standalone: true}"><br>
+                              
+                        </div>
+
+
+
+
+                        <button type="submit" class="btn btn-success" (click)="login()">LOGIN </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a routerLink="register" class="btn btn-danger text-white" style="text-decoration: none;" >REGISTER NOW</a>
+                        <p class=" text-white"><input type="checkbox"  >Remember me</p>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

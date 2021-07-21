@@ -1,0 +1,26 @@
+h1{
+    font-size: 60px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 20px;
+}
+
+
+.section1{
+    margin-top: 100px;
+    width: 400px;
+    height: 300px;
+    /* border: 1px solid black; */
+    margin-left:350px;
+    background-color: cadetblue;
+}
+#accno,#pswd,#uname{
+    width:300px;
+    margin-left: 40px;
+}
+
+
+.row4{
+    width: 100px;
+margin-left: 100px;
+}
