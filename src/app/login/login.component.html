@@ -18,7 +18,7 @@
     font-family: 'Armata', sans-serif;color:maroon;font-weight:bolder;font-size: 60px;">{{aim}}</h1>
 
     <div class="row">
-        <div class="col-lg-5 m-auto">
+        <div class="col-lg-5 mx-auto">
             <div class="card mt-5 bg-dark">
                 <div class="card-title text-center mt-3">
                     <img [src]="myimage" alt="image" style="width:150px;height:150px">
@@ -31,8 +31,8 @@
                                     <i class="far fa-user fa-2x"></i>
                                 </span>
                             </div>
-                            <input type="text" class="form-control py-2" placeholder="accountnumber" [(ngModel)]="acno"
-                                [ngModelOptions]="{standalone: true}">
+                            <input type="text" class="form-control py-2" placeholder="accountnumber"name="pswd" [(ngModel)]="acno"
+                             >
                         </div>
                         <div class=" input-group mb-3">
                             <div class="input-group-prepend">
@@ -40,8 +40,8 @@
                                     <i class="fas fa-lock fa-2x"></i>
                                 </span>
                             </div>
-                            <input type="password" class="form-control py-2" placeholder="password" [(ngModel)]="pswd"
-                                [ngModelOptions]="{standalone: true}"><br>
+                            <input type="password" class="form-control py-2" placeholder="password" name="pswd" [(ngModel)]="pswd"
+                            ><br>
                               
                         </div>
 
