@@ -1,1 +1,70 @@
-<p>dashboard works</p>
+<div class="row">
+    <div class="col-lg-5 mx-auto">
+        <div class="card mt-5">
+            <div class="card-title text-center mt-3">
+                <!-- <img [src]="myimage" alt="image" style="width:150px;height:150px"> -->
+            </div>
+            <div class="card-body">
+                <form (ngSubmit)="deposit()">
+                    <h3 class="text-black">DEPOSIT FORM</h3>
+
+                    <div class=" input-group mb-3">
+
+                        <input type="text" class="form-control py-2" placeholder="accountnumber" name="acno1"
+                            [(ngModel)]="acno1">
+                    </div>
+                    <div class=" input-group mb-3">
+
+                        <input type="password" class="form-control py-2" placeholder="password" name="pswd1"
+                            [(ngModel)]="pswd1"><br>
+
+                    </div>
+
+                    <div class=" input-group mb-3">
+
+                        <input type="number" class="form-control py-2" placeholder="amount" name="amt1"
+                            [(ngModel)]="amount1"><br>
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success">DEPOSIT </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                </form>
+            </div>
+            <div class="card mt-5">
+                <div class="card-title text-center mt-3">
+                    <!-- <img [src]="myimage" alt="image" style="width:150px;height:150px"> -->
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="withdraw()">
+                        <h3 class="text-black">WITHDRAW FORM</h3>
+                        <div class=" input-group mb-3">
+
+
+                            <input type="text" class="form-control py-2" placeholder="accountnumber" name="acno2"
+                                [(ngModel)]="acno2">
+                        </div>
+                        <div class=" input-group mb-3">
+
+
+                            <input type="password" class="form-control py-2" placeholder="password" name="pswd2"
+                                [(ngModel)]="pswd2"><br>
+
+                        </div>
+
+                        <div class=" input-group mb-3">
+
+
+                            <input type="number" class="form-control py-2" placeholder="amount" name="amount2"
+                                [(ngModel)]="amount2"><br>
+
+                        </div>
+
+
+
+
+                        <button type="submit" class="btn btn-success">WITHDRAW </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </form>
+                </div>
+            </div>
+        </div>
