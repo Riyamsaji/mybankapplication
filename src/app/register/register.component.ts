@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatabaseService } from '../service/database.service';
 
@@ -11,27 +12,38 @@ export class RegisterComponent implements OnInit {
 acno="";
 pswd="";
 uname="";
-  constructor(private data:DatabaseService,private router:Router) { }
+  registerform = this.fb.group({
+    uname: ['',[Validators.required,Validators.pattern('[a-zA-Z]*')]],
+    acno: ['',[Validators.required,Validators.pattern('[0-9]*')]],
+    pswd: ['',[Validators.required,Validators.pattern('[a-zA-Z]*')]]
+  })
+  constructor(private data: DatabaseService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
-register(){
-var acno=this.acno;
-var pswd=this.pswd;
-var uname=this.uname;
+  register() {
+    //to check errors are there(validations are not followed properly)
+   
+    // to check form is valid or not
+    if (this.registerform.valid) {
+      var acno = this.registerform.value.acno;
+      var pswd = this.registerform.value.pswd;
+      var uname = this.registerform.value.uname;
+      console.log(this.registerform.value)
+      var result = this.data.register(acno, pswd, uname);
 
-var result=this.data.register(acno,pswd,uname);
-if(result){
-  alert("registered succesful") 
+      if (result) {
+        alert("successfully registered");
+        this.router.navigateByUrl("")
+      }
+      else {
+        alert("invalid");
+        this.router.navigateByUrl("")
+      }
+    }
+    else {
+      alert("invalid form")
+    }
 
-  this.router.navigateByUrl("")
-}
-else{
-  alert("please login ,user already exist")
-  this.router.navigateByUrl("")
- 
-  
-  
-}
-}
+  }
 }

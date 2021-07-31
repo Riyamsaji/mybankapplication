@@ -14,43 +14,44 @@
         <div class="col-lg-5 m-auto">
             <div class="card mt-5 bg-dark">
                 <div class="card-title text-center mt-3">
-                 
+
                 </div>
                 <div class="card-body">
-                    <form (ngSubmit)="register()">
+                    <form [formGroup]="registerform" (ngSubmit)="register()">
                         <div class=" input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="far fa-user fa-2x"></i>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control py-2" placeholder="accountnumber" name="acno" [(ngModel)]="acno">
+
+                            <input type="text" class="form-control py-2" placeholder="accountnumber" name="acno"
+                                formControlName="acno"><br>
                                
+
                         </div>
+                        <div  *ngIf="this.registerform.get('acno')?.errors &&(this.registerform.get('acno')?.touched ||this.registerform.get('acno')?.dirty) "class="error">INVALID ACNO</div>
+                     <!-- ngif  Structuraldirectives -->
+                      
+                   
+                            
                         <div class=" input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fas fa-lock fa-2x"></i>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control py-2" placeholder="password" name="pswd" [(ngModel)]="pswd">
-                               
+
+                            <input type="text" class="form-control py-2" placeholder="password" name="pswd"
+                                formControlName="pswd">
+
                         </div>
+                        <div  *ngIf="this.registerform.get('pswd')?.errors &&(this.registerform.get('pswd')?.touched ||this.registerform.get('pswd')?.dirty) "class="error">invalid password</div>
+                        <!-- <div *ngIf="(this.registerform.get('pswd')?.touched || this.registerform.get('pswd')?.dirty)&&(this.registerform.get('pswd')?.errors)" class="error">Invalid password</div> -->
                         <div class=" input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="far fa-user fa-2x"></i>
-                                </span>
-                            </div>
-                            <input type="text" class="form-control py-2" placeholder="username" name="uname" [(ngModel)]="uname">
-                              
+
+                            <input type="text" class="form-control py-2" placeholder="username" name="uname"
+                                formControlName="uname">
+
                         </div>
+                        <div  *ngIf="this.registerform.get('uname')?.errors &&(this.registerform.get('uname')?.touched ||this.registerform.get('uname')?.dirty) "class="error">Invalid username</div>
+                        <!-- <div *ngIf="(this.registerform.get('uname')?.touched || this.registerform.get('uname')?.dirty)&&(this.registerform.get('uname')?.errors)" class="error">Invalid username</div> -->
 
 
 
 
 
-                       
+
                         <button type="submit">REGISTER NOW</button>
                     </form>
 

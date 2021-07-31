@@ -24,33 +24,30 @@
                     <img [src]="myimage" alt="image" style="width:150px;height:150px">
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form [formGroup]="loginform" (ngSubmit)="login()">
                         <div class=" input-group mb-3">
-                            <!-- <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fas fa-lock"></i> -->
-                                <!-- </span>
-                            </div> -->
-                            <input type="text" class="form-control py-2" placeholder="accountnumber"name="pswd" [(ngModel)]="acno"
-                             >
+                                                                                                                                                                
+                            <input type="text" class="form-control py-2" placeholder="accountnumber" name="pswd"
+                                formControlName="acno">
+
                         </div>
+                        <div *ngIf="this.loginform.get('acno')?.errors && (this.loginform.get('acno')?.touched || this.loginform.get('acno')?.dirty)"class="error">Invalid accountnumber</div>
                         <div class=" input-group mb-3">
-                            <!-- <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="fas fa-lock fa-2x"></i>
-                                </span>
-                            </div> -->
-                            <input type="password" class="form-control py-2" placeholder="password" name="pswd" [(ngModel)]="pswd"
-                            ><br>
-                              
+
+                            <input type="password" class="form-control py-2" placeholder="password" name="pswd"
+                                formControlName="pswd"><br>
+
                         </div>
+                        <div *ngIf="this.loginform.get('pswd')?.errors && (this.loginform.get('pswd')?.touched || this.loginform.get('pswd')?.dirty)"class="error">Invalid password</div>
 
 
 
 
-                        <button type="submit" class="btn btn-success" (click)="login()">LOGIN </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a routerLink="register" class="btn btn-danger text-white" style="text-decoration: none;" >REGISTER NOW</a>
-                        <p class=" text-white"><input type="checkbox"  >Remember me</p>
+                        <button type="submit" class="btn btn-success">LOGIN </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a routerLink="register" class="btn btn-danger text-white"
+                            style="text-decoration: none;">REGISTER NOW</a>
+                        <p class=" text-white"><input type="checkbox">Remember me</p>
+
                     </form>
 
                 </div>
@@ -58,4 +55,5 @@
         </div>
     </div>
 </body>
+
 </html>

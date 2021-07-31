@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseService {
+  current_user="";
   users: any = {
     1000: { accountnumber: 1000, password: "userone", username: "riya", balance: 10000 },
     1001: { accountnumber: 1001, password: "usertwo", username: "miya", balance: 1500 },
@@ -13,7 +14,18 @@ export class DatabaseService {
     1003: { accountnumber: 1003, password: "userfour", username: "liya", balance: 1000 }
   }
   constructor() { }
-  register(accountnumber: any, password: any, username: any) {
+
+saveDetails(){
+  localStorage.setItem("users",JSON.stringify(this.users))
+  localStorage.setItem("currentUser",JSON.stringify(this.current_user))
+}
+
+
+
+
+
+  register(accountnumber: any, password: any, username: any) {//called by the register() in registercomponent
+    //the arguments of register must be same as database to reduce the errors
     let accountdetails = this.users;
     if (accountnumber in accountdetails) {
 
@@ -39,7 +51,7 @@ export class DatabaseService {
     let accountdetails = this.users;
     if (accountnumber in accountdetails) {
       if (password == accountdetails[accountnumber]["password"]) {
-
+     this.current_user=accountdetails[accountnumber]["username"];
         return true;
       }
       else {
@@ -92,7 +104,7 @@ export class DatabaseService {
         alert("insuffient balance")
         return false;
       }
-   
+
     }
     else {
       alert("invalid user")

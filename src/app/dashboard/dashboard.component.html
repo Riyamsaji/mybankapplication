@@ -1,70 +1,103 @@
-<div class="row">
-    <div class="col-lg-5 mx-auto">
-        <div class="card mt-5">
-            <div class="card-title text-center mt-3">
-                <!-- <img [src]="myimage" alt="image" style="width:150px;height:150px"> -->
-            </div>
-            <div class="card-body">
-                <form (ngSubmit)="deposit()">
-                    <h3 class="text-black">DEPOSIT FORM</h3>
+<!DOCTYPE html>
+<html lang="en">
 
-                    <div class=" input-group mb-3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-                        <input type="text" class="form-control py-2" placeholder="accountnumber" name="acno1"
-                            [(ngModel)]="acno1">
-                    </div>
-                    <div class=" input-group mb-3">
-
-                        <input type="password" class="form-control py-2" placeholder="password" name="pswd1"
-                            [(ngModel)]="pswd1"><br>
-
-                    </div>
-
-                    <div class=" input-group mb-3">
-
-                        <input type="number" class="form-control py-2" placeholder="amount" name="amt1"
-                            [(ngModel)]="amount1"><br>
-
-                    </div>
-
-
-                    <button type="submit" class="btn btn-success">DEPOSIT </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                </form>
-            </div>
-            <div class="card mt-5">
+<body>
+<h1>Welcome {{user}}</h1>
+    <div class="row">
+        <div class="col-lg-5 m-auto">
+            <div class="card mt-5 bg-dark">
                 <div class="card-title text-center mt-3">
-                    <!-- <img [src]="myimage" alt="image" style="width:150px;height:150px"> -->
+
                 </div>
                 <div class="card-body">
-                    <form (ngSubmit)="withdraw()">
-                        <h3 class="text-black">WITHDRAW FORM</h3>
+                    <form [formGroup]="depositform" (ngSubmit)="deposit()">
+                        <h2 class="text-white">DEPOSIT FORM</h2>
                         <div class=" input-group mb-3">
 
+                            <input type="text" class="form-control py-2" placeholder="accountnumber" name="acno"
+                                formControlName="acno1"><br>
+                               
+
+                        </div>
+                        <div  *ngIf="this.depositform.get('acno1')?.errors &&(this.depositform.get('acno1')?.touched ||this.depositform.get('acno1')?.dirty) "class="error">INVALID ACNO</div>
+                  
+                      
+                   
+                            
+                        <div class=" input-group mb-3">
+
+                            <input type="text" class="form-control py-2" placeholder="password" name="pswd"
+                                formControlName="pswd1">
+
+                        </div>
+                        <div  *ngIf="this.depositform.get('pswd1')?.errors &&(this.depositform.get('pswd1')?.touched ||this.depositform.get('pswd')?.dirty) "class="error">invalid password</div>
+                       
+                        <div class=" input-group mb-3">
+
+                            <input type="text" class="form-control py-2" placeholder="amount" name="amount1"
+                                formControlName="amount1">
+
+                        </div>
+                        <div  *ngIf="this.depositform.get('amount1')?.errors &&(this.depositform.get('amount1')?.touched ||this.depositform.get('amount1')?.dirty) "class="error">Invalid amount</div>
+                        
+
+
+
+
+
+
+                        <button type="submit">deposit</button>
+                    </form>
+                    <form [formGroup]="withdrawform" (ngSubmit)="withdraw()">
+                        <h2 class="text-white">WITHDRAW FORM</h2>
+                        <div class=" input-group mb-3">
 
                             <input type="text" class="form-control py-2" placeholder="accountnumber" name="acno2"
-                                [(ngModel)]="acno2">
+                                formControlName="acno2"><br>
+                               
+
                         </div>
+                        <div  *ngIf="this.depositform.get('acno2')?.errors &&(this.withdrawform.get('acno2')?.touched ||this.withdrawform.get('acno2')?.dirty) "class="error">INVALID ACNO</div>
+                  
+                      
+                   
+                            
                         <div class=" input-group mb-3">
 
-
-                            <input type="password" class="form-control py-2" placeholder="password" name="pswd2"
-                                [(ngModel)]="pswd2"><br>
+                            <input type="text" class="form-control py-2" placeholder="password" name="pswd"
+                                formControlName="pswd2">
 
                         </div>
-
+                        <div  *ngIf="this.depositform.get('pswd2')?.errors &&(this.withdrawform.get('pswd2')?.touched ||this.withdrawform.get('pswd2')?.dirty) "class="error">invalid password</div>
+                       
                         <div class=" input-group mb-3">
 
-
-                            <input type="number" class="form-control py-2" placeholder="amount" name="amount2"
-                                [(ngModel)]="amount2"><br>
+                            <input type="text" class="form-control py-2" placeholder="amount" name="amount1"
+                                formControlName="amount2">
 
                         </div>
+                        <div  *ngIf="this.withdrawform.get('amount2')?.errors &&(this.withdrawform.get('amount2')?.touched ||this.withdrawform.get('amount2')?.dirty) "class="error">Invalid amount</div>
+                        
 
 
 
 
-                        <button type="submit" class="btn btn-success">WITHDRAW </button>&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                        <button type="submit">withdraw</button>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+
+</body>
+
+</html>
